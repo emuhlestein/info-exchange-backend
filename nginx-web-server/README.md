@@ -1,0 +1,1 @@
+This module is for the nginx web server. Nginx will be deployed in a docker container.
