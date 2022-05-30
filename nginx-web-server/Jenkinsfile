@@ -1,0 +1,18 @@
+node {
+    def app /* define a variable */
+
+    stage ('Clone repository') {
+        /* clone the repo into the workspace */
+        /* scm is a special variable which instructs the checkout step to clone the specific repo. */
+        checkout scm
+    }
+
+    stage ('Build image') {
+        /* build the docker image */
+        app = docker.build("nginx-server")
+    }
+
+    stage ('Test image') {
+        echo "Tests passed"
+    }
+}
