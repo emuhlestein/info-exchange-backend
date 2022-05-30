@@ -1,4 +1,4 @@
-node {
+node { /* This is a scripted pipeline */
     def app /* define a variable */
 
     stage ('Clone repository') {
@@ -9,7 +9,7 @@ node {
 
     stage ('Build image') {
         /* build the docker image */
-        app = docker.build("nginx-server")
+        app = docker.build("nginx-server", "nginx-web-server")
     }
 
     stage ('Test image') {
