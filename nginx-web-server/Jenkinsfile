@@ -9,7 +9,8 @@ node { /* This is a scripted pipeline */
 
     stage ('Build image') {
         /* build the docker image */
-        app = docker.build("nginx-server", "nginx-web-server")
+//         app = docker.build("nginx-server", "nginx-web-server")
+        bat "docker build -t nginx-server2 ."
     }
 
     stage ('Test image') {
