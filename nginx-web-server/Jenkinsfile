@@ -1,22 +1,50 @@
-node { /* This is a scripted pipeline */
-    def app /* define a variable */
+pipeline { /* declarative pipeline */
+    // agent { label "windows" }
+    // more relevant for Jenkins cluster, where there are windows and/or linux nodes
+    agent any // where to build, run on next available agent
+    stages {
+        stage("build") {
+            steps {
+                // example
+                // bat for windows, sh for linux
+                // bat 'npm install'
+                // bat 'npm build'
+                echo 'Building the application'
+            }
+        }
+        stage("test") {
+            steps {
+                echo 'Testing the application'
+            }
 
-    stage ('Clone repository') {
-        /* clone the repo into the workspace */
-        /* scm is a special variable which instructs the checkout step to clone the specific repo. */
-        checkout scm
-    }
-
-    stage ('Build image') {
-        /* build the docker image */
-//         app = docker.build("nginx-server", "nginx-web-server")
-        bat "echo show current directory"
-        bat "cd"
-        bat "docker build -t nginx-server2 ."
-    }
-
-    stage ('Test image') {
-        echo "Tests passed"
-        bat 'echo %PATH%'
+        }
+        stage("deploy") {
+            steps {
+                echo 'Deploying the build'
+            }
+        }
     }
 }
+
+// node { /* This is a scripted pipeline (groovy) */
+//     def app /* define a variable */
+//
+//     stage ('Clone repository') {
+//         /* clone the repo into the workspace */
+//         /* scm is a special variable which instructs the checkout step to clone the specific repo. */
+//         checkout scm
+//     }
+//
+//     stage ('Build image') {
+//         /* build the docker image */
+// //         app = docker.build("nginx-server", "nginx-web-server")
+//         bat "echo show current directory"
+//         bat "cd"
+//         bat "docker build -t nginx-server2 ."
+//     }
+//
+//     stage ('Test image') {
+//         echo "Tests passed"
+//         bat 'echo %PATH%'
+//     }
+// }
