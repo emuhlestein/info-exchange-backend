@@ -6,6 +6,7 @@ pipeline { /* declarative pipeline */
         stage("Pre Build") {
             steps {
                 bat 'docker --version'
+                bat 'cd'
             }
         }
         stage("build") {
