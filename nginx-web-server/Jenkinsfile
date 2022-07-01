@@ -3,6 +3,11 @@ pipeline { /* declarative pipeline */
     // more relevant for Jenkins cluster, where there are windows and/or linux nodes
     agent any // where to build, run on next available agent
     stages {
+        stage("Pre Build") {
+            steps {
+                bat 'docker --version'
+            }
+        }
         stage("build") {
             steps {
                 // example
