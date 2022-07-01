@@ -10,6 +10,7 @@ pipeline { /* declarative pipeline */
                 // bat 'npm install'
                 // bat 'npm build'
                 echo 'Building the application'
+                bat 'docker build -t nginx-server2 .''
             }
         }
         stage("test") {
