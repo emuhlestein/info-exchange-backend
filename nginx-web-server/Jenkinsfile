@@ -21,7 +21,7 @@ pipeline { /* declarative pipeline */
                 // bat 'npm build'
                 echo 'Building the application'
                 script {
-                    bat 'docker build -t nginx-server2 -f ./Dockerfile .'
+                    bat 'docker build -t nginx-server2 -f nginx-web-server/Dockerfile .'
                 }
             }
         }
