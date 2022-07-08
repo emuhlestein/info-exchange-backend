@@ -7,30 +7,30 @@ pipeline { /* declarative pipeline */
 //         COMPOSE_DOCKER_CLI_BUILD=0
 //     }
     stages {
-        stage("Pre Build") {
-            steps {
-                bat 'docker --version'
-                bat 'cd'
-            }
-        }
-        stage("build nginx docker image") {
-            steps {
-                // example
-                // bat for windows, sh for linux
-                // bat 'npm install'
-                // bat 'npm build'
-                // nginx-web-server is the docker context
-                echo 'Building the application'
-                script {
-//                     bat 'docker build -t nginx-server2 -f nginx-web-server/Dockerfile .'
-                }
-            }
-        }
-        stage("test") {
-            steps {
-                echo 'Testing the application'
-            }
-        }
+//         stage("Pre Build") {
+//             steps {
+//                 bat 'docker --version'
+//                 bat 'cd'
+//             }
+//         }
+//         stage("build nginx docker image") {
+//             steps {
+//                 // example
+//                 // bat for windows, sh for linux
+//                 // bat 'npm install'
+//                 // bat 'npm build'
+//                 // nginx-web-server is the docker context
+//                 echo 'Building the application'
+//                 script {
+// //                     bat 'docker build -t nginx-server2 -f nginx-web-server/Dockerfile .'
+//                 }
+//             }
+//         }
+//         stage("test") {
+//             steps {
+//                 echo 'Testing the application'
+//             }
+//         }
         stage("deploy nginx docker image") {
             steps {
 //                 bat 'docker save -o /tmp/nginx-server2.tar nginx-server2'
