@@ -1,3 +1,4 @@
+# a comment
 FROM nginx:1.23.0-alpine
 RUN rm /etc/nginx/nginx.conf /etc/nginx/conf.d/default.conf
 COPY nginx-web-server/nginx.conf /etc/nginx

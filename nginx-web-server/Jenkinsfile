@@ -22,7 +22,7 @@ pipeline { /* declarative pipeline */
                 // nginx-web-server is the docker context
                 echo 'Building the application'
                 script {
-                    bat 'docker build -t nginx-server2 -f nginx-web-server/Dockerfile .'
+//                     bat 'docker build -t nginx-server2 -f nginx-web-server/Dockerfile .'
                 }
             }
         }
@@ -33,10 +33,10 @@ pipeline { /* declarative pipeline */
         }
         stage("deploy nginx docker image") {
             steps {
-                bat 'docker save -o /tmp/nginx-server2.tar nginx-server2'
-                bat 'scp /tmp/nginx-server2.tar edm@192.168.1.101:/home/edm/webserver'
+//                 bat 'docker save -o /tmp/nginx-server2.tar nginx-server2'
+//                 bat 'scp /tmp/nginx-server2.tar edm@192.168.1.101:/home/edm/webserver'
                 bat 'echo deploy > /tmp/deploy2server'
-                bat 'scp /tmp/deploy2server edm@192.168.1.101:/home/edm/webserver'
+                bat 'scp nginx-web-server/Dockerfile edm@192.168.1.101:/home/edm/webserver'
             }
         }
     }
