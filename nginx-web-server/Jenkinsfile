@@ -33,7 +33,7 @@ pipeline { /* declarative pipeline */
         }
         stage("deploy nginx docker image") {
             steps {
-                bat 'docker save nginx-server2.tar nginx-web-server/nginx-server2'
+                bat 'docker save nginx-web-server/nginx-server2.tar nginx-web-server/nginx-server2'
             }
         }
     }
