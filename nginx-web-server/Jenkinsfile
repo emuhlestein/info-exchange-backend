@@ -35,6 +35,8 @@ pipeline { /* declarative pipeline */
             steps {
                 bat 'docker save -o /tmp/nginx-server2.tar nginx-server2'
                 bat 'scp /tmp/nginx-server2.tar edm@192.168.1.101:/home/edm/webserver'
+                bat 'echo deploy > /tmp/deploy2server'
+                bat 'scp /tmp/deploy2server edm@192.168.1.101:/home/edm/webserver'
             }
         }
     }
