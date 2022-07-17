@@ -13,19 +13,19 @@ pipeline { /* declarative pipeline */
 //                 bat 'cd'
 //             }
 //         }
-//         stage("build nginx docker image") {
-//             steps {
-//                 // example
-//                 // bat for windows, sh for linux
-//                 // bat 'npm install'
-//                 // bat 'npm build'
-//                 // nginx-web-server is the docker context
-//                 echo 'Building the application'
-//                 script {
-// //                     bat 'docker build -t nginx-server2 -f nginx-web-server/Dockerfile .'
-//                 }
-//             }
-//         }
+        stage("build nginx docker image") {
+            steps {
+                // example
+                // bat for windows, sh for linux
+                // bat 'npm install'
+                // bat 'npm build'
+                // nginx-web-server is the docker context
+                echo 'Building the application'
+                script {
+                    bat 'docker build --platform linux/arm/v7 -t nginx-server2 -f nginx-web-server/Dockerfile .'
+                }
+            }
+        }
 //         stage("test") {
 //             steps {
 //                 echo 'Testing the application'
